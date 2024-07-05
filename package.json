@@ -27,9 +27,13 @@
     "typescript": "^5.6.0-dev.20240704"
   },
   "dependencies": {
+    "@elysiajs/cors": "^1.0.2",
+    "@elysiajs/html": "^1.0.2",
+    "@elysiajs/static": "^1.0.3",
     "@replit/database": "^3.0.1",
     "@replit/object-storage": "^1.0.0",
     "@replit/repl-auth": "^1.0.0",
+    "elysia": "^1.0.27",
     "express": "5.0.0-beta.3",
     "react": "^19.0.0-rc-3da26163a3-20240704",
     "react-dom": "^19.0.0-rc-3da26163a3-20240704"

@@ -11,36 +11,36 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", async (_, res) => {
-	const user = getUserInfo(_);
-	const stream = await renderToReadableStream(
-		<html lang="en" data-theme="dark">
-			<head>
-				<title>Hello, world!</title>
-				<script src="https://cdn.tailwindcss.com" />
-			</head>
-			<body className="bg-slate-900 text-white">
-				<main className="p-4">
-					<p>{user?.name ?? "world"}</p>
-					<a>{user?.url}</a>
-				</main>
-			</body>
-		</html>
-	);
+    const user = getUserInfo(_);
+    const stream = await renderToReadableStream(
+        <html lang="en" data-theme="dark">
+            <head>
+                <title>Hello, world!</title>
+                <script src="https://cdn.tailwindcss.com" />
+            </head>
+            <body className="bg-slate-900 text-white">
+                <main className="p-4">
+                    <p>{user?.name ?? "world"}</p>
+                    <a href={user?.url}>{user?.url}</a>
+                </main>
+            </body>
+        </html>
+    );
 
-	await stream.allReady;
+    await stream.allReady;
 
-	const response = new Response(stream, {
-		headers: {
-			"Content-Type": "text/html",
-		},
-	});
+    const response = new Response(stream, {
+        headers: {
+            "Content-Type": "text/html",
+        },
+    });
 
-	res.send(await response.text());
+    res.send(await response.text());
 });
 
 app.listen({
-	hostname: process.env.hostname,
-	port: process.env.port,
+    hostname: process.env.hostname,
+    port: process.env.port,
 }, () => {
-	console.log(`Server is running on ${url}`);
+    console.log(`Server is running on ${url}`);
 });
