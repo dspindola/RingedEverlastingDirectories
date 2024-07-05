@@ -8,7 +8,7 @@
 		"include": ["src", ".gyoza/tasks", ".gyoza/types"]
 	},
 	"linter": {
-		"include": ["src"],
+		"include": ["src", "replit.nix.ts"],
 		"enabled": true,
 		"rules": {
 			"recommended": true
