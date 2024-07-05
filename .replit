@@ -1,5 +1,5 @@
-run = "bun run --watch ./src/index.tsx"
-entrypoint = "src/index.ts"
+run = "bun run --port=8080 --watch ./src/index.tsx"
+entrypoint = "src/index.tsx"
 modules = ["nix"]
 
 hidden = [".config", ".git", ".gitignore", ".gyoza"]
@@ -58,14 +58,13 @@ language = "bun"
 
 [packager.features]
 guessImports = true
-enabledForHosting = false
+enabledForHosting = true
 packageSearch = true
 
+[[ports]]
+localPort = 8080
+externalPort = 80
 
-[unitTest]
-language = "bun"
-
-[deployment]
-run = ["bun", "run", "--port=8080", "src/index.ts"]
-deploymentTarget = "cloudrun"
-ignorePorts = false
+[auth]
+pageEnabled = true
+buttonEnabled = false
