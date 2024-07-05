@@ -1,0 +1,70 @@
+run = "bun run --watch ./src/index.ts"
+entrypoint = "src/index.ts"
+modules = ["nix"]
+
+hidden = [".config", ".git", ".gitignore", ".gyoza"]
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", ".config"]
+
+[nix]
+channel = "stable-24_05"
+
+[env]
+PATH = "/home/runner/.proto/bin:/home/runner/.config/.bun/bin:/home/runner/.config/npm/node_global/bin"
+BUN_INSTALL = "/home/runner/.config/.bun"
+XDG_CONFIG_HOME = "/home/runner/.config"
+npm_config_prefix = "/home/runner/.config/npm/node_global"
+[languages]
+[languages.toml]
+pattern = "**/{*.toml}"
+[languages.toml.languageServer]
+start = ["taplo", "lsp", "stdio"]
+
+[languages.nushell]
+pattern = "**/{*.nu,*.bun.nu}"
+[languages.nushell.languageServer]
+start = ["nu", "--lsp"]
+
+[languages.sql]
+pattern = "**/{*.sqlite,*.sql,*.db}"
+[languages.sql.languageServer]
+start = ["sqls"]
+
+[languages.typescript]
+pattern = "**/{*.ts,*.tsx,*.mts,*.cts,*.js,*.jsx,*.mjs,*.cjs,tsconfig.*}"
+[languages.typescript.languageServer]
+start = ["typescript-language-server", "--stdio"]
+
+[languages.markdown]
+pattern = "**/{*.md}"
+[languages.markdown.languageServer]
+start = ["vscode-markdown-language-server", "--stdio"]
+
+[languages.html]
+pattern = "**/{*.html}"
+[languages.html.languageServer]
+start = ["vscode-html-language-server", "--stdio"]
+
+[languages.css]
+pattern = "**/{*.css}"
+[languages.css.languageServer]
+start = ["vscode-css-language-server", "--stdio"]
+
+
+[packager]
+language = "bun"
+
+[packager.features]
+guessImports = true
+enabledForHosting = false
+packageSearch = true
+
+
+[unitTest]
+language = "bun"
+
+[deployment]
+run = ["bun", "run", "--port=8080", "src/index.ts"]
+deploymentTarget = "cloudrun"
+ignorePorts = false

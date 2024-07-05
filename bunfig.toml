@@ -1,0 +1,16 @@
+preload = ["./preload.ts"]
+jsx = "react-jsx"
+telemetry = false
+smol = true
+logLevel = "info"
+jsxImportSource = "react"
+
+[define]
+"Bun.GYOZA_TEMP_DIR" = "'.gyoza/.tmp'"
+
+[loader]
+".replit" = "toml"
+".sql" = "sqlite"
+".css" = "css"
+".toml" = "toml"
+".nu" = "file"
