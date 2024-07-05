@@ -31,24 +31,13 @@
         "src/*"
       ],
       "$/*": [
-        ".gyoza/utils/*"
+        "./.gyoza/utils/*"
       ],
-      "gyoza://*": [
-        ".gyoza/*"
-      ]
-    },
-    "types": [
-      "react/canary",
-      "react-dom/canary",
-      "bun",
-      "vite/client"
-    ]
+    }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    ".gyoza/types/**/*.d.ts",
-    ".gyoza/tasks/**/*.ts",
-    ".gyoza/utils/**/*.ts"
+    ".gyoza/**/*.ts"
   ]
 }

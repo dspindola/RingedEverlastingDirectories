@@ -1,6 +1,6 @@
-import { $hashFile } from "$/fs";
-import replitConfig from "~/.replit";
-import bunConfig from "~/bunfig.toml";
+import { $hashFile } from "../utils/fs";
+import replitConfig from "../../.replit";
+import bunConfig from "../../bunfig.toml";
 
 const map = {
 	...(await $hashFile(".replit", "replit.config", replitConfig)),
@@ -9,4 +9,4 @@ const map = {
 
 await Bun.write(".gyoza/.tmp/head.json", JSON.stringify(map));
 
-import "~/replit.nix.ts";
+import "../../replit.nix";

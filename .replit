@@ -1,4 +1,4 @@
-run = "bun run --watch ./src/index.ts"
+run = "bun run --watch ./src/index.tsx"
 entrypoint = "src/index.ts"
 modules = ["nix"]
 

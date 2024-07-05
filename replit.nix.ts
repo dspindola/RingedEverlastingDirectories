@@ -1,4 +1,4 @@
-import { $nix, $pkgs } from "$/nix";
+import { $nix, $pkgs } from "~/.gyoza/utils/nix";
 
 export default $nix({
 	deps: [
@@ -9,6 +9,9 @@ export default $nix({
 		$pkgs`sqls`,
 		$pkgs`nushell`,
 	],
+	environment: {
+		systemPackages: []
+	}
 },
 	{
 		outfile: '.gyoza/replit.nix',
