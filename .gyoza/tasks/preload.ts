@@ -1,14 +1,7 @@
-import { hash } from "ohash";
-import { inspect, write } from "bun";
+import { $hashFile } from "$/fs"
+import replitConfig from "~/.replit";
+import bunConfig from "~/bunfig.toml";
 
-import replitConfig from "../../.replit";
-import bunConfig from "../../bunfig.toml";
+const map = { ...await $hashFile(".replit", "replit.config", replitConfig), ...await $hashFile("bunfig.toml", "bun.config", bunConfig) };
 
-const out = ($name: string, $hash: string) =>
-	`${Bun.GYOZA_TEMP_DIR}/${$name}.${$hash}.txt`;
-
-const exports = (content: any) => `export default ${inspect(content)}`;
-
-await write(out("replit.config", hash(replitConfig)), exports(replitConfig));
-
-await write(out("bun.config", hash(bunConfig)), exports(bunConfig));
+await Bun.write(".gyoza/.tmp/head.json", JSON.stringify(map));

@@ -1,7 +1,5 @@
-preload = ["./preload.ts"]
+preload = ["./.gyoza/tasks/preload.ts"]
 jsx = "react-jsx"
-telemetry = false
-smol = true
 logLevel = "info"
 jsxImportSource = "react"
 
@@ -13,4 +11,4 @@ jsxImportSource = "react"
 ".sql" = "sqlite"
 ".css" = "css"
 ".toml" = "toml"
-".nu" = "file"
+".nu" = "text"

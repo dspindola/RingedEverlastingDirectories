@@ -1,3 +1,3 @@
-import env from "../scripts/env.bun.nu";
+import env from "~/scripts/env.bun.nu";
 
-console.log(env);
+await Bun.$`nu -c '${env}'`
