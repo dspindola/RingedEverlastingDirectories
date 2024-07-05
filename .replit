@@ -15,6 +15,7 @@ PATH = "/home/runner/.proto/bin:/home/runner/.config/.bun/bin:/home/runner/.conf
 BUN_INSTALL = "/home/runner/.config/.bun"
 XDG_CONFIG_HOME = "/home/runner/.config"
 npm_config_prefix = "/home/runner/.config/npm/node_global"
+
 [languages]
 [languages.toml]
 pattern = "**/{*.toml}"

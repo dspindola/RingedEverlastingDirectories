@@ -180,3 +180,5 @@ dist
 bun.lockb
 
 .gyoza/.tmp*
+
+.config
